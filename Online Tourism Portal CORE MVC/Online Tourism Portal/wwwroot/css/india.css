@@ -1,0 +1,90 @@
+﻿* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: seashell;
+}
+
+#aboutIndia {
+    color: lightcoral;
+    text-align: center;
+    align-items: center;
+    font-size: 75px
+}
+
+#Image1 {
+    align-items: center;
+    padding: 10px;
+    top: 61px;
+    left: -31px;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+#Image2 {
+    margin-right: 2%;
+}
+
+.aboutText {
+    margin: 2%;
+    margin-top: 1%;
+    font-size: 25px;
+}
+
+.facts {
+    border: double;
+    margin: 2%;
+    margin-top: 1%;
+    font-size: 25px;
+    padding: 1%;
+}
+
+.factI {
+    color: red;
+    text-align: center;
+    align-items: center;
+}
+
+ul {
+    list-style-type: square;
+}
+
+.climate {
+    font-size: 25px;
+}
+
+.climate1 {
+    color: darkcyan;
+}
+
+
+
+#Label4 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.state {
+    font-size: 25px;
+    border: double;
+    margin: 2%;
+}
+
+.UNION {
+    border: groove;
+    margin: 2%;
+    margin-top: 1%;
+    font-size: 25px;
+    padding: 1%;
+}
+
+.topnav {
+    background-color: #003366;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+
+#txtCustomer {
+    font-size: 25px;
+}

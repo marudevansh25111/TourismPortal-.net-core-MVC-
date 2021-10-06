@@ -1,0 +1,71 @@
+﻿@model Online_Tourism_Portal.Models.Registration
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <title> Login </title>
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</head>
+
+<body>
+
+    <form method="post" asp-action="Login">
+        <div class="border p-3">
+            <img src="~/css/img/login.png" class="img" style="width:200px;border-radius:50%">
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Name"><i class="fa fa-user"></i> UserName </label>
+
+                        </div>
+                        <div class="col-8">
+                            <input class='in' asp-for="Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Password"><i class="fa fa-lock"></i> Password  </label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Password" class='in' type="password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-8 offset-4 row">
+
+                            <div class="col">
+                                <input type="submit" class="btn btn-info w-100" value="Login" />
+                            </div>
+                            <div class="col">
+                                <a asp-action="Create" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </form>
+</body>
+</html>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+
