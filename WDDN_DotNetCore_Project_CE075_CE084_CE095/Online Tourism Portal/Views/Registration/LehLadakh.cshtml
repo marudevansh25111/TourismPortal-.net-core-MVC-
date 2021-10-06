@@ -1,0 +1,129 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{ Layout = null; }
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="~/css/Home.css" type="text/css" />
+    <title>Leh Ladakh</title>
+    <link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+
+    <script>
+
+        $(function () {
+            $("#sew_searchBox").autocomplete(
+                {
+                    source: function (request, response) {
+                        var param = { destination: $('#sew_searchBox').val() };
+                        $.ajax({
+                            url: "india.aspx/GetEmp",
+                            data: JSON.stringify(param),
+                            type: "post",
+                            contentType: "application/json;charset=utf-8",
+                            dataFilter: function (data) { return data; },
+                            success: function (data) {
+                                response($.map(data.d, function (item) { return { value: item } }))
+                            },
+                        });
+                    }, minLength: 1
+                });
+        }
+        );
+    </script>
+</head>
+<body>
+    <form id="form1" method="post" asp-action="Validate">
+
+        <div class="topnav" style="width: 100%">
+            <a class="active" href="/Registration/Home">Home</a>
+            <a href="/Registration/Login">Login</a>
+            <a href="/Registration/AboutIndia">About India </a>
+            <a href="#contact">Contact</a>
+            <a>
+                <input type="search" value="@ViewData["Destinations"]" asp-controller="Registration" id="txtCustomer" name="destination" style="width:200px;height:40px;font-size:25px" placeholder="Search..."
+                       Font-Overline="True" />
+                <input type="hidden" id="hfCustomer" name="CustomerId" />
+            </a>
+            <a>
+                <input type="submit" value="Search" style="width: 90px; height: 40px;font-size:25px" />
+            </a>
+
+        </div>
+
+        <div>
+            <div id="aboutIndia" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-seriffont-weight bolder; font-style: normal; text-decoration: blink; color: lightcoral; text-align: center; align-items: center; font-size: 75px;margin-bottom:5px">
+                Leh Ladakh&nbsp;&nbsp; &nbsp;
+            </div>
+            <img src="~/img/leh1.jpg" style="width: 100%; height: 600px" />
+        </div>
+        <div style="font-size:25px">
+            <h1>Leh Ladakh</h1>
+            <p>Hemis, Alchi, Lamayuru, Shey and Thiksay are some of the most popular monasteries of Ladakh which attract both domestic as well as foreign tourist.Pangong lake(Half in China) and world highest motorable road Khardongla (18350 fts) is main attraction for domestic tourist, and monasteries and mountains are for foreign tourist.</p>
+            <p>Undoubtedly, you will emerge a changed person after your Ladakh tour. The people of Ladakh are friendly and there’s a sense of spirituality in the air. You can sense it as soon as you enter Ladakh. The many Tibetan monasteries contribute to this. But the wide expanse of the sky, the land and the mountains make you realise how tiny and insignificant we are in the whole grand design of the universe. The land might be barren, but it comes alive with the people here whose love for their land and simple joys infuse the landscape with life.</p>
+        </div>
+        <div style="font-size:25px">
+            <h1>
+                Tourism
+            </h1>
+            <p>
+                Tourism has won a wide recognition as an important industry in the district in view of its potential for creation of employment opportunities and generation of income on a large scale. This industry has a direct bearing on the socio-economic scene of the district. Tourism industry provides employment to a large number of people engaged in the related sectors like transport, Hotels and catering service, cottage industry etc. Tourism promotes economic activities in the remote areas.
+            </p>
+            <p>
+                Since its opening for the tourist (1974), Leh has registered an increasing number of tourists attracted towards it, because of its landscape, culture, tradition environment etc. and still has much potential for adventure tourism.
+
+                Leh figures on the international tourist map and attracts a large inflow of tourists both from home and abroad. The economy of the region is therefore, based on tourism. That is why Leh is abounds in Hotels, guest houses and taxis. There are 250 hotels, guest house of different classes in Leh.
+            </p>
+            <p>Hemis, Alchi, Lamayuru, Shey and Thiksay are some of the most popular monasteries of Ladakh which attract both domestic as well as foreign tourist.Pangong lake(Half in China) and world highest motorable road Khardongla (18350 fts) is main attraction for domestic tourist, and monasteries and mountains are for foreign tourist.</p>
+        </div>
+        <div class="iocon">
+            <h1>Images</h1>
+            <img src="~/img/leh2.jpg" style="width:432px; height: 295px" />
+            <img src="~/img/leh3.jpg" style="width:432px; height: 295px" />
+            <img src="~/img/leh4.jpeg" style="width:432px; height: 295px" />
+        </div>
+        <div style="font-size:25px">
+            <h3>Map</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52819.542424993546!2d77.53163286950948!3d34.16625665265621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38fdeb21445fed85%3A0xd1bb09975086f710!2sLeh!5e0!3m2!1sen!2sin!4v1632388980715!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="UNION">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            &nbsp;&nbsp;
+            <h1>Tourism Places in Leh Ladakh</h1>
+            <table style="margin-bottom: 23px; margin-left: 45px; Width:100% ; Height:94px;" CellPadding="0" CellSpacing="0">
+                <tr style="font-size:25px">
+                    <td>Pangong Tso Lake</td>
+                    <td>Shanti Stupa</td>
+                    <td>Tso Moriri Lake</td>
+                    <td> Leh Palace</td>
+                    <td>Khardung La Pass</td>
+                </tr>
+                <tr style="font-size:25px">
+                    <td>Magnetic Hill</td>
+                    <td>Nubra Valley</td>
+                    <td>Namgyal Tsemo Gompa</td>
+                    <td>Spituk Monastery</td>
+                    <td>Hall of Fame Museum</td>
+                </tr>
+            </table>
+        </div>
+        <div style="font-size:25px">
+            <br /><br /><br />
+            <h4>Hotels in Leh Ladakh</h4>
+            <a href="https://www.booking.com/city/in/leh.en.html?aid=306395;label=leh-l1IbtIb2ShBLEuTX7i24UwS151853094183:pl:ta:p1:p2:ac:ap:neg:fi:tiaud-1110454565467:kwd-2701953470:lp1007759:li:dec:dm:ppccp=UmFuZG9tSVYkc2RlIyh9YZVcNNsENnH02-pWD53qm9c;ws=&gclid=CjwKCAjwy7CKBhBMEiwA0Eb7aoxDMFwqQ9OnqdfdMZzWDQ6oYRvVRFvi5vuabcRv2xhqucBmimgqKxoCZVkQAvD_BwE">Click here</a>
+            <h4>For More Information</h4>
+            <a href="https://ladakh.nic.in/tourism/">Click here</a>            <br />
+        </div>
+        <div class="footer">
+            <h3 style="background-color:#003366">Email:indiantourism@gov.in </h3>
+            <h3 style="background-color:#003366"> ©2021 IndianTourism</h3>
+        </div>
+    </form>
+</body>
+</html>

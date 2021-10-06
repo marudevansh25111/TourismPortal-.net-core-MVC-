@@ -1,0 +1,120 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{ Layout = null; }
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="~/css/Home.css" type="text/css" />
+    <title>Statue of Unity</title>
+    <link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+
+    <script>
+
+        $(function () {
+            $("#sew_searchBox").autocomplete(
+                {
+                    source: function (request, response) {
+                        var param = { destination: $('#sew_searchBox').val() };
+                        $.ajax({
+                            url: "india.aspx/GetEmp",
+                            data: JSON.stringify(param),
+                            type: "post",
+                            contentType: "application/json;charset=utf-8",
+                            dataFilter: function (data) { return data; },
+                            success: function (data) {
+                                response($.map(data.d, function (item) { return { value: item } }))
+                            },
+                        });
+                    }, minLength: 1
+                });
+        }
+        );
+    </script>
+
+</head>
+<body>
+    <form id="form1" method="post" asp-action="Validate">
+
+        <div class="topnav" style="width: 100%">
+            <a class="active" href="/Registration/Home">Home</a>
+            <a href="/Registration/Login">Login</a>
+            <a href="/Registration/AboutIndia">About India </a>
+            <a href="#contact">Contact</a>
+            <a>
+                <input type="search" value="@ViewData["Destinations"]" asp-controller="Registration" id="txtCustomer" name="destination" style="width:200px;height:40px;font-size:25px" placeholder="Search..."
+                       Font-Overline="True" />
+                <input type="hidden" id="hfCustomer" name="CustomerId" />
+            </a>
+            <a>
+                <input type="submit" value="Search" style="width: 90px; height: 40px;font-size:25px" />
+            </a>
+
+        </div>
+
+        <div>
+            <div id="aboutIndia" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-seriffont-weight bolder; font-style: normal; text-decoration: blink; color: lightcoral; text-align: center; align-items: center; font-size: 75px;margin-bottom:5px">
+                Statue Of Unity &nbsp;&nbsp; &nbsp;
+            </div>
+            <img src="~/img/sou1.jpg" style="width: 100%; height: 600px" />
+        </div>
+        <div style="font-size:25px">
+            <h1>Statue of Unity</h1>
+            <p>The Statue of Unity is a colossal statue of Indian statesman and independence activist Vallabhbhai Patel (1875–1950), who was the first deputy prime minister and home minister of independent India and an adherent of Mahatma Gandhi during the nonviolent Indian Independence movement. Patel was highly respected for his leadership in uniting 562 princely states of India with a major part of the former British Raj to form the single Union of India. The statue is located in the state of Gujarat, India. It is the world's tallest statue with a height of 182 metres (597 feet).[3] It is located on the Narmada River in the Kevadiya colony, facing the Sardar Sarovar Dam 100 kilometres (62 mi) southeast of the city of Vadodara and 150 kilometres (93 mi) from Surat. Kevadia railway station is located at a distance of just 5 kilometres from Statue of Unity.</p>
+            <p>Over 128,000 tourists visited the statue in the 11 days after its opening to the public on 1 November 2018.The daily average tourist footfall at Statue of Unity during November 2019 reached 15,036, outpacing the Statue of Liberty </p>
+            <p>A consortium comprising Turner Construction, Michael Graves and Associates and the Meinhardt Group supervised the project. The project took 57 months to complete – 15 months for planning, 40 months for construction and 2 months for handing over by the consortium</p>
+        </div>
+
+        <div class="iocon">
+            <h1>Images</h1>
+            <img src="~/img/sou2.jpeg" style="width:432px; height: 295px" />
+            <img src="~/img/sou3.jpeg" style="width:432px; height: 295px" />
+            <img src="~/img/sou4.jpg" style="width:432px; height: 295px" />
+
+        </div>
+        <div>
+            <h3>Map</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.5057772035116!2d73.71687875048924!3d21.838018385494763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39601d55e43af21f%3A0xb8e23c01a1f6eb18!2sStatue%20of%20Unity!5e0!3m2!1sen!2sin!4v1632388949934!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="UNION">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            &nbsp;&nbsp;
+            <h1>Tourism Places in Statue of Unity</h1>
+            <table style="margin-bottom: 23px; margin-left: 45px; Width:100% ; Height:94px;" CellPadding="0" CellSpacing="0">
+
+                <tr style="font-size:25px">
+                    <td> Valley of Flowers</td>
+                    <td>Riverfront Cycling</td>
+                    <td>Sardar Patel Zoological Park and Jungle Safari</td>
+                    <td>Geodesic Aviary Domes</td>
+                    <td>Pet Zone at Statue of Unity</td>
+                </tr>
+                <tr style="font-size:25px">
+                    <td>	Unity Glow Garden</td>
+                    <td>Dino Trail at Statue of Unity</td>
+                    <td>Sardar Sarovar Dam</td>
+                    <td>Children Nutrition Park</td>
+                    <td>Arogya Van or Herbal Garden</td>
+                </tr>
+            </table>
+        </div> <br /><br /><br />
+        <div style="font-size:25px">
+            <h4>Hotels in Statue of Unity</h4>
+            <a href="https://www.makemytrip.com/hotels/rajpipla-hotels-near-statue_of_unity.html">Click here</a>
+            <h4>For More Information and Tickets</h4>
+            <a href="https://statueofunity.in/">Click here</a>
+            <br />
+        </div>
+        <div class="footer">
+            <h3 style="background-color:#003366">Email:indiantourism@gov.in </h3>
+            <h3 style="background-color:#003366"> ©2021 IndianTourism</h3>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,151 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{ Layout = null; }
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="~/css/Home.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>TourismPortal</title>
+    <link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+
+    <script>
+
+        $(function () {
+            $("#sew_searchBox").autocomplete(
+                {
+                    source: function (request, response) {
+                        var param = { destination: $('#sew_searchBox').val() };
+                        $.ajax({
+                            url: "india.aspx/GetEmp",
+                            data: JSON.stringify(param),
+                            type: "post",
+                            contentType: "application/json;charset=utf-8",
+                            dataFilter: function (data) { return data; },
+                            success: function (data) {
+                                response($.map(data.d, function (item) { return { value: item } }))
+                            },
+                        });
+                    }, minLength: 1
+                });
+        }
+        );
+    </script>
+</head>
+<body class="background">
+    <form id="form1" method="post" asp-action="Validate">
+
+        <div class="topnav" style="width: 100%">
+            <a class="active" href="/Registration/Home">Home</a>
+            <a href="/Registration/Login">Login</a>
+            <a href="/Registration/AboutIndia">About India </a>
+            <a href="#contact">Contact</a>
+            <a>
+                <input type="search" value="@ViewData["Destinations"]" asp-controller="Registration" id="txtCustomer" name="destination" style="width:200px;height:40px;font-size:25px" placeholder="Search..."
+                       Font-Overline="True" />
+                <input type="hidden" id="hfCustomer" name="CustomerId" />
+            </a>
+            <a>
+                <input type="submit" value="Search" style="width: 90px; height: 40px;font-size:25px" />
+            </a>
+
+        </div>
+
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+
+                <img src="~/img/lion.jpg" style="width: 100%; height: 600px" />
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="~/img/home.jpg" style="width: 100%; height: 600px" />
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="~/img/home2.jpg" style="width: 100%; height: 600px" />
+
+            </div>
+
+        </div>
+        <br />
+
+        <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <br />
+        </div>
+        <script>
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 5000); // Change image every 5 seconds
+            }
+        </script>
+        <h1>Welcome to the Beauty of India</h1>
+        <div style="font-size:25px">
+            <h4>
+                India as a country is known for its unique culture, heritage, temple style, variety of rivers and wildlife. The country is surrounded by the mighty Himalayas, deep Arabian Sea, Bay of Bengal and the Indian Ocean. The Indians civilization and culture inherit the tradition of Atithi Devo Bhava (The Guest is like God) from the time immemorial. India also boasts for substantially diverse physical, political and multi-lingual society and offers a lot to explore through its voluminous vivid recreation and adventure activities. Because of its diverse attractions and geographic location, India attracts a large number of tourists from all around the globe besides a large number of domestic tourists. India is therefore considered as an important tourist hotspot offering an array of experiences to the tourists.
+
+                The intensifying influence of tourism as an economic powerhouse and its potential as a tool for regional development are indisputable. It is growing progressively and contributing immensely to the inclusive economic development of the nation at one end and employment generation for the stakeholders on the other end. On the basis of its tourism resources and attractions, tourism in India can broadly be classified into cultural and heritage tourism, eco and sustainable tourism, religious/pilgrimage tourism, wildlife and nature-based tourism, medical tourism, leisure and beach tourism, MICE and event tourism, creative tourism, etc.
+            </h4>
+        </div>
+        <h2>Top Destinations</h2>
+        <div class="=icon"style="font-size:25px" >
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" src="~/img/1386038.jpg" style="width: 432px; height:295px; margin-top: 0px; border: 5px solid #003366;" asp-controller="Registration" asp-action="Taj">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" src="~/img/mp.jpg" style="width: 432px; height:295px; margin-top: 0px; border: 5px solid #003366;" asp-controller="Registration" asp-action="Khajuraho">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" src="~/img/jaipur.jpg" style="width: 432px; height:295px; margin-top: 0px; border: 5px solid #003366;" asp-controller="Registration" asp-action="Jaipur">
+            <br />
+            <br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" src="~/img/goa.jpeg" style="width: 432px; height:295px; margin-top: 0px; border: 5px solid #003366;" asp-controller="Registration" asp-action="Goa">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" src="~/img/east india.jpg" style="width: 432px; height:295px; margin-top: 0px; border: 5px solid #003366;" asp-controller="Registration" asp-action="NorthEastIndia">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="image" src="~/img/kerala1.jpg" style="width: 432px; height:295px; margin-top: 0px; border: 5px solid #003366;" asp-controller="Registration" asp-action="Kerela">
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <div class="footer">
+            <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/" class="fa fa-twitter"></a>
+            <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+            <br />
+            <h3 style="background-color: #003366">Email:indiantourism@gov.in </h3>
+            <h3 style="background-color: #003366">©2021 IndianTourism</h3>
+        </div>
+    </form>
+</body>
+</html>
